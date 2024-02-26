@@ -1,20 +1,40 @@
 # Questionário Sistemas Embarcados I
 
 ## 1. Explique brevemente o que é compilação cruzada (***cross-compiling***) e para que ela serve.
+O Cross-Compiling se trata de uma compilação entre arquiteturas diferentes, ou seja, através dele é possível compilar um arquivo atráves de um computador com uma arquitetura, gerando um outro arquivo que consiga ser lido por um dispositivo diferente e com uma outra arquitetura.
+
 
 ## 2. O que é um código de inicialização ou ***startup*** e qual sua finalidade?
+Um código de inicialização, ou como é conhecido, startup, é um código criado para executar algumas tarefas que antecedem a execução da função principal (main) em um programa. Como por exemplo: copiar conteúdo de uma seção para outra, inicializar variavies globais, inicializar a seção .bss em zero, entre outras atividades essenciais que garantem o funcionamento do programa.
+
 
 ## 3. Sobre o utilitário **make** e o arquivo **Makefile responda**:
 
 #### (a) Explique com suas palavras o que é e para que serve o **Makefile**.
+O Makefile é um arquivo onde contém instruções que serão executadas pelo make, nele é possivel escrever regras para compilar um arquivo de forma automática, sem correr o risco de cometer erros ao fazer esse processo de forma manual. Essas regras especificam como os diferentes componentes de um projeto devem ser compilados e vinculados, permitindo uma compilação e um processo de construção do software mais eficiente e livre de erros.
+
 
 #### (b) Descreva brevemente o processo realizado pelo utilitário **make** para compilar um programa.
 
+
+
 #### (c) Qual é a sintaxe utilizada para criar um novo **target**?
+Para criar um novo target deve-se obedecer o seguinte formato:
+
+targets: prerequisites
+	recipe 
+
+Onde "targets" é o nome do novo target; prerequisites são os arquivos ou outros targets que o target atual depende, se esses pre requisitos não estiverem atualizados, o target será reconstruído; e recipe são os comandos que o make deve executar para criar o target, eles devem começar por uma tabulação. 
+
 
 #### (d) Como são definidas as dependências de um **target**, para que elas são utilizadas?
 
+
+
 #### (e) O que são as regras do **Makefile**, qual a diferença entre regras implícitas e explícitas?
+As regras em um Makefile são instruções que especificam como transformar um ou mais arquivos de uma origem em um arquivo específico desejado, elas são compostas pelos targets, prerequisites e recipes. 
+A diferença entre regra explícita e implícita, é que na primeira os arquivos escolhidos para serem compilados são definidos pela extensão do arquivo (Exemplo: Todos arqivos .c), já na regra implícita os arquivos são escolhidos pelos seus nomes que pode ser definido pelo usuário (Exemplo: main.c).  
+
 
 ## 4. Sobre a arquitetura **ARM Cortex-M** responda:
 
@@ -39,6 +59,10 @@
 ### (j) Em modo de execução normal, o Cortex-M pode fazer uma chamada de função usando a instrução **BL**, que muda o **PC** para o endereço de destino e salva o ponto de execução atual no registador **LR**. Ao final da função, é possível recuperar esse contexto usando uma instrução **BX LR**, por exemplo, que atualiza o **PC** para o ponto anterior. No entanto, quando acontece uma interrupção, o **LR** é preenchido com um valor completamente  diferente,  chamado  de  **EXC_RETURN**.  Explique  o  funcionamento  desse  mecanismo  e especifique como o **Cortex-M** consegue fazer o retorno da interrupção. 
 
 ### (k) Qual  a  diferença  no  salvamento  de  contexto,  durante  a  chegada  de  uma  interrupção,  entre  os processadores Cortex-M3 e Cortex M4F (com ponto flutuante)? Descreva em termos de tempo e também de uso da pilha. Explique também o que é ***lazy stack*** e como ele é configurado. 
+
+
+
+
 
 
 ## Referências
