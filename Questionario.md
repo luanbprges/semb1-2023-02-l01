@@ -15,7 +15,8 @@ O Makefile é um arquivo onde contém instruções que serão executadas pelo ma
 
 
 #### (b) Descreva brevemente o processo realizado pelo utilitário **make** para compilar um programa.
-
+O processo de compilaçõa se inicia com o make fazendo a leitura do arquivo Makefile, examinando as regras presentes nele, ou seja, avalia se os targets estão desatualizados através das suas dependências (prerequisites). Um target é dado como desatualizado caso não exista ou sua data de modificação seja mais antiga que seus prerequisitos, entendendo assim que precisa ser atualizado. 
+A forma como os targets são atualizados é definido pelas recipes de cada um, essas receitas contêm os comandos necessários para compilar, montar ou construir o target específico, utilizando as informações disponíveis nos prerequisitos.
 
 
 #### (c) Qual é a sintaxe utilizada para criar um novo **target**?
@@ -28,7 +29,7 @@ Onde "targets" é o nome do novo target; prerequisites são os arquivos ou outro
 
 
 #### (d) Como são definidas as dependências de um **target**, para que elas são utilizadas?
-
+As dependências de um target são definidas para indicar os arquivos necessários para compilar ou executar o target em questão. Se alguma dependência não estiver presente ou desatualizada, o make pode tentar compilá-la automaticamente ou gerar um erro indicando que a dependência está faltando ou desatualizada. Se todas as dependências estiverem disponíveis e atualizadas, o target pode ser compilado ou executado com sucesso.
 
 
 #### (e) O que são as regras do **Makefile**, qual a diferença entre regras implícitas e explícitas?
